@@ -25,7 +25,7 @@ export default function PlaceOrderScreen() {
   const taxPrice = round2(itemsPrice * 0.15);
   
   const Price = round2(itemsPrice + shippingPrice + taxPrice);
-  const disc= Price>2000?0.1*Price : 0;
+  const disc= round2(Price>2000?0.1*Price : 0);
   const totalPrice = round2(Price-disc);
 
   const router = useRouter();
