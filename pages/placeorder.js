@@ -21,7 +21,7 @@ export default function PlaceOrderScreen() {
     cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   ); // 123.4567 => 123.46
 
-  const shippingPrice = itemsPrice > 200 ? 0 : 15;
+  const shippingPrice = itemsPrice > 0 ? 0.1*itemsPrice : 15;
   const taxPrice = round2(itemsPrice * 0.15);
   const totalPrice = round2(itemsPrice + shippingPrice + taxPrice);
 
@@ -85,7 +85,7 @@ export default function PlaceOrderScreen() {
               </div>
             </div>
             <div className="card  p-5">
-              <h2 className="mb-2 text-lg">Payment Method</h2>
+              <h2 className="mb-2 text-lg">Shipping Method</h2>
               <div>{paymentMethod}</div>
               <div>
                 <Link href="/payment">Edit</Link>

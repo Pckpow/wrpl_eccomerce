@@ -39,14 +39,14 @@ export default function PaymentScreen() {
   }, [paymentMethod, router, shippingAddress.address]);
 
   return (
-    <Layout title="Payment Method">
+    <Layout title="Shipment Method">
       <CheckoutWizard activeStep={2} />
       <form className="mx-auto max-w-screen-md" onSubmit={submitHandler}>
-        <h1 className="mb-4 text-xl">Payment Method</h1>
-        {['PayPal', 'Stripe', 'CashOnDelivery'].map((payment) => (
+        <h1 className="mb-4 text-xl">Shipment Method</h1>
+        {['Fedex', 'JCTrans', 'DHL'].map((payment) => (
           <div key={payment} className="mb-4">
             <input
-              name="paymentMethod"
+              name="Shipment Method"
               className="p-2 outline-none focus:ring-0"
               id={payment}
               type="radio"
