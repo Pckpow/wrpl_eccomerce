@@ -9,6 +9,9 @@ import { Store } from '../utils/Store';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Link from 'next/link';
+import 'tailwindcss/tailwind.css';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function Home({ products, featuredProducts }) {
   const { state, dispatch } = useContext(Store);
