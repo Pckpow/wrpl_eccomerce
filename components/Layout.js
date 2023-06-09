@@ -51,6 +51,8 @@ export default function Layout({ title, children }) {
             <Link href="/" className="text-lg font-bold">
               amazona
             </Link>
+  
+            {/* search bar*/}
             <form
               onSubmit={submitHandler}
               className="mx-auto  hidden  justify-center md:flex"
@@ -58,7 +60,7 @@ export default function Layout({ title, children }) {
               <input
                 onChange={(e) => setQuery(e.target.value)}
                 type="text"
-                className="rounded-tr-none rounded-br-none p-1 text-sm   focus:ring-0"
+                className="rounded-tr-none rounded-br-none p-1 text-sm focus:ring-0"
                 placeholder="Search products"
               />
               <button
@@ -69,8 +71,16 @@ export default function Layout({ title, children }) {
                 <SearchIcon className="h-5 w-5"></SearchIcon>
               </button>
             </form>
+
+            <div className="flex items-center space-x-2 px-5">
+              {/* re route into the search and filter page */}
+              <Link href="/search" className="inline-block px-4 py-2 rounded-full bg-blue-500 text-white no-underline hover:bg-blue-400 hover:text-white">
+                Products
+              </Link>
+            </div>
+
             <div className="flex items-center z-10">
-              <Link href="/cart" className="p-2">
+              <Link href="/cart" className="inline-block px-4 py-2 rounded-full bg-blue-500 text-white no-underline hover:bg-blue-400 hover:text-white ">
                 Cart
                 {cartItemsCount > 0 && (
                   <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
@@ -83,7 +93,7 @@ export default function Layout({ title, children }) {
                 'Loading'
               ) : session?.user ? (
                 <Menu as="div" className="relative inline-block">
-                  <Menu.Button className="text-blue-600">
+                  <Menu.Button className="inline-block ml-4 px-4 py-2 rounded-full bg-blue-500 text-white no-underline hover:bg-blue-400 hover:text-white">
                     {session.user.name}
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white  shadow-lg ">
@@ -122,7 +132,7 @@ export default function Layout({ title, children }) {
                   </Menu.Items>
                 </Menu>
               ) : (
-                <Link href="/login" className="p-2">
+                <Link href="/login" className="inline-block ml-4 px-4 py-2 rounded-full bg-blue-500 text-white no-underline hover:bg-blue-400 hover:text-white">
                   Login
                 </Link>
               )}
@@ -131,7 +141,7 @@ export default function Layout({ title, children }) {
         </header>
         <main className="container m-auto mt-4 px-4">{children}</main>
         <footer className="flex h-10 justify-center items-center shadow-inner">
-          <p>Copyright © 2022 Amazona</p>
+          
         </footer>
       </div>
     </>

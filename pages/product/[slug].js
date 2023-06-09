@@ -8,6 +8,7 @@ import Layout from '../../components/Layout';
 import Product from '../../models/Product';
 import db from '../../utils/db';
 import { Store } from '../../utils/Store';
+import { BiArrowBack } from "react-icons/bi";
 
 export default function ProductScreen(props) {
   const { product } = props;
@@ -32,12 +33,17 @@ export default function ProductScreen(props) {
 
   return (
     <Layout title={product.name}>
-      <div className="py-2">
-        <Link href="/">back to products</Link>
+      <div className="py-2" style={{ display: 'flex', alignItems: 'center' }}>
+        <Link href="/" className="inline-block px-4 py-2 rounded-full bg-blue-500 text-white no-underline hover:bg-blue-400 hover:text-white">
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <BiArrowBack />
+          <p style={{ marginLeft: '8px' }}>Back to products</p>
+        </div>
+        </Link>
       </div>
       <div className="grid md:grid-cols-4 md:gap-3">
-        <div className="md:col-span-2">
-          <Image
+        <div className="md:col-span-2 ">
+          <Image className="rounded-lg"
             src={product.image}
             alt={product.name}
             width={640}
@@ -49,17 +55,19 @@ export default function ProductScreen(props) {
             }}
           ></Image>
         </div>
-        <div>
+        <div className='ml-4'>
           <ul>
             <li>
-              <h1 className="text-lg">{product.name}</h1>
+              <h1 className="text-4xl font-semibold pb-4">{product.name}</h1>
             </li>
-            <li>Category: {product.category}</li>
-            <li>Brand: {product.brand}</li>
-            <li>
-              {product.rating} of {product.numReviews} reviews
+            <li className="pb-2 ">Category : <a className='inline-block px-4 py-2 rounded-full bg-blue-500 text-white no-underline hover:bg-blue-400 hover:text-white' href={`/search?category=${encodeURIComponent(product.category)}`}> {product.category}</a></li>
+            <li className="pb-2">Brand: <a className='inline-block px-4 py-2 rounded-full bg-blue-500 text-white no-underline hover:bg-blue-400 hover:text-white' href={`/search?brand=${encodeURIComponent(product.brand)}`}>{product.brand}</a></li>
+            <li className="pb-2">
+              <span > {product.rating} </span>of {product.numReviews} reviews
             </li>
-            <li>Description: {product.description}</li>
+            <li className='pb-2'>Description :
+               <h4>{product.description}</h4>
+            </li>
           </ul>
         </div>
         <div>
