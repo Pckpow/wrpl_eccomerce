@@ -50,7 +50,7 @@ function OrderScreen() {
 
   const { query } = useRouter();
   const orderId = query.id;
-
+  const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100;
   const [
     {
       loading,
@@ -118,7 +118,7 @@ function OrderScreen() {
     isDelivered,
     deliveredAt,
   } = order;
-
+  const disc = round2(totalPrice>2000?0.1*totalPrice : 0);
   function createOrder(data, actions) {
     return actions.order
       .create({
@@ -265,6 +265,12 @@ function OrderScreen() {
                   <div className="mb-2 flex justify-between">
                     <div>Shipping</div>
                     <div>${shippingPrice}</div>
+                  </div>
+                </li>
+                <li>
+                <div className="mb-2 flex justify-between">
+                    <div>Discount</div>
+                    <div>${disc}</div>
                   </div>
                 </li>
                 <li>
