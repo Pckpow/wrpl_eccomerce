@@ -83,9 +83,9 @@ export default function Home({ products, featuredProducts }) {
           <div className="icon-box-content pl-28">
               <h3 className="icon-box-title font-bold flex items-center">
               <FiPercent className="mr-2 text-4xl" />
-              <span className="align-middle">Get 20% Off 1 Item</span>
+              <span className="align-middle">Get 20% Off</span>
               </h3>
-              <p className="flex items-center">When you sign up</p>
+              <p className="flex items-center">For your first purchase </p>
           </div>
         </div>
         </div>

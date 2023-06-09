@@ -86,13 +86,13 @@ function AdminDashboardScreen() {
                 Dashboard
               </Link>
             </li>
-            <li>
+            <li className='my-2'>
               <Link href="/admin/orders">Orders</Link>
             </li>
-            <li>
+            <li className='my-2'>
               <Link href="/admin/products">Products</Link>
             </li>
-            <li>
+            <li className='my-2'>
               <Link href="/admin/users">Users</Link>
             </li>
           </ul>

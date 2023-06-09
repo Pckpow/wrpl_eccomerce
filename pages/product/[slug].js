@@ -61,7 +61,7 @@ export default function ProductScreen(props) {
               <h1 className="text-4xl font-semibold pb-4">{product.name}</h1>
             </li>
             <li className="pb-2 ">Category : <a className='inline-block px-4 py-2 rounded-full bg-blue-500 text-white no-underline hover:bg-blue-400 hover:text-white' href={`/search?category=${encodeURIComponent(product.category)}`}> {product.category}</a></li>
-            <li className="pb-2">Brand: <a className='inline-block px-4 py-2 rounded-full bg-blue-500 text-white no-underline hover:bg-blue-400 hover:text-white' href={`/search?brand=${encodeURIComponent(product.brand)}`}>{product.brand}</a></li>
+            <li className="pb-2">Brand : <a className='inline-block px-4 py-2 rounded-full bg-blue-500 text-white no-underline hover:bg-blue-400 hover:text-white' href={`/search?brand=${encodeURIComponent(product.brand)}`}>{product.brand}</a></li>
             <li className="pb-2">
               <span > {product.rating} </span>of {product.numReviews} reviews
             </li>
